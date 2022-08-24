@@ -1,0 +1,59 @@
+﻿
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+@model List<ProductWithCategoryDto>
+
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <div class="container-fluid">
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+            <ul class="navbar-nav flex-grow-1">
+                
+    <li class="nav-item">
+     <a class="nav-link text-dark" asp-area="" asp-controller="Member" asp-action="LogOut" asp-route-returnUrl="/Home/Index">Çıkış Yap </a>
+    </li>
+        
+
+
+            </ul>
+        </div>
+    </div>
+</nav>
+<table class="table table-striped">
+        <thead>
+            <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Price</td>
+            <td>Stock</td>
+            <td>Category</td>
+            <td>CreatedDate</td>
+            
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+               <td>@item.Id</td>
+                <td>@item.Name</td>
+                 <td>@item.Price</td>
+                  <td>@item.Stock</td>
+                   <td>@item.Category.Name</td>
+                    <td>@item.CreatedDate</td>                   
+                     </tr>
+            }
+
+        </tbody>
+
+
+
+    </table>
